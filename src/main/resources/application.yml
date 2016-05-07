@@ -1,0 +1,28 @@
+messages:
+  basename: messages
+  fallback-to-system-locale: true
+  default:
+    country: BR
+    language: PT
+
+server:
+  port: ${PORT:8761}
+  compression:
+    enabled: true
+    mime-types: application/json
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    server:
+      waitTimeInMsWhenSyncEmpty: 0
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+
+spring:
+  http:
+    converters:
+      preferred-json-mapper: jackson
