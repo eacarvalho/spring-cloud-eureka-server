@@ -12,14 +12,14 @@
         <java.version>1.8</java.version>
         <lombok.version>1.16.6</lombok.version>
         <jackson-mapper-asl.version>1.9.13</jackson-mapper-asl.version>
-        <spring-cloud-netflix.version>1.0.7.RELEASE</spring-cloud-netflix.version>
+        <spring-cloud-netflix.version>Brixton.SR2</spring-cloud-netflix.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-netflix</artifactId>
+                <artifactId>spring-cloud-dependencies</artifactId>
                 <version>${spring-cloud-netflix.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
@@ -40,6 +40,10 @@
     <dependencies>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-config</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-eureka-server</artifactId>
         </dependency>
         <dependency>
@@ -51,6 +55,15 @@
             <artifactId>jackson-mapper-asl</artifactId>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 
     <repositories>
         <repository>
